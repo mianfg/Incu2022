@@ -27,6 +27,8 @@ class Cat(Animal):
     print("Meow!")
 
 if __name__ == "__main__":
+  if len(sys.args) < 3:
+    raise Exception("Too few arguments")
   if sys.argv[3] == 'dog':
     called_animal = Dog(sys.args[1], sys.args[2])
   if sys.argv[3] == 'cat':
