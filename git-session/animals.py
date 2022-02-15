@@ -18,5 +18,7 @@ class Dog(Animal):
     print("Woof!")
     
 if __name__ == "__main__":
+  if len(sys.args) < 3:
+    raise Exception("Too few arguments")
   called_animal = Dog(sys.args[1], sys.args[2])
   called_animal.speak()
