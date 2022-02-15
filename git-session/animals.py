@@ -16,7 +16,16 @@ class Dog(Animal):
   def speak(self):
     super().speak()
     print("Woof!")
+
+class Cat(Animal):
+  def __init__(self, name, age):
+    super().__init_(name, age)
+    self.type = 'cat'
     
+  def speak(self):
+    super().speak()
+    print("Meow!")
+
 if __name__ == "__main__":
   called_animal = Dog(sys.args[1], sys.args[2])
   called_animal.speak()
