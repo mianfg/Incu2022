@@ -27,5 +27,8 @@ class Cat(Animal):
     print("Meow!")
 
 if __name__ == "__main__":
-  called_animal = Dog(sys.args[1], sys.args[2])
+  if sys.argv[3] == 'dog':
+    called_animal = Dog(sys.args[1], sys.args[2])
+  if sys.argv[3] == 'cat':
+    called_animal = Cat(sys.args[1], sys.args[2])
   called_animal.speak()
