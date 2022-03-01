@@ -5,7 +5,7 @@ Repository for Cisco Incubator Program 9.0's DevNet track exercises
 ## Sessions
 
 | # | Name | Folder |
-| --- | --- | --- | --- |
+| --- | --- | --- | 
 | 1 | Software Design and Development with Python | [python-session](./python-session) |
 | 2 | In Git we trust! - intro to Version Control Systems | [git-session](./git-session) |
 | 3 | From Zero to Network Automation Hero | [auto-session](./auto-session) |
