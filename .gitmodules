@@ -1,3 +1,6 @@
 [submodule "pictomaker-lite"]
 	path = webex-api-session/pictomaker-lite
 	url = https://github.com/mianfg/pictomaker-lite
+[submodule "webex-api-session/pictomaker-lite"]
+	path = webex-api-session/pictomaker-lite
+	url = https://github.com/mianfg/pictomaker-lite
