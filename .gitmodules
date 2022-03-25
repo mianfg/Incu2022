@@ -1,0 +1,3 @@
+[submodule "pictomaker-lite"]
+	path = pictomaker-lite
+	url = https://github.com/mianfg/pictomaker-lite
