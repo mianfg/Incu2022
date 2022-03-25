@@ -24,9 +24,10 @@ sentences to colorful pictograms. It is able to:
 * Provide an image generator that compiles the pictogram into one, colorful image.
 
 Pictograms are an essential tool for children and elder people with Alzheimer's and dementia. The
-[first version of PictoMaker](https://pictomaker.mianfg.me) I developed, only in Spanish, received
-a warm reception from the educational community. I was really proud of it, and have always wanted
-to make improvements to it. I though the opportunity to create a bot was perfect for this.
+[first version of PictoMaker](https://pictomaker.mianfg.me) I developed, only in Spanish, was the
+first webapp I ever developed, and received a warm reception from the educational community. I was
+really proud of it, and have always wanted to make improvements to it. I thought the opportunity
+to create a bot was perfect for this.
 
 To improve PictoMaker and create a functional WebEx bot, I had to:
 
@@ -55,15 +56,19 @@ can view all the preferences by texting `/preferences`.
 
 > NOTE: not all preferences can be changed as of right now, as this is a proof-of-concept.
 
-You can modify a specific preference using `/preferences set <preference_name> <preference_value>`. For example, here we change the language to Spanish and set the skin tone to black. We can now enter a sentence in Spanish to view the translation.
+You can modify a specific preference using `/preferences set <preference_name> <preference_value>`.
+For example, here we change the language to Spanish and set the skin tone to black. We can now
+enter a sentence in Spanish to view the translation.
 
 ![Screenshot 04](./resources/screenshot-04.png)
 
-Another interesting feature of PictoMaker is that it can output the pictograms uncolored. Here you see how we even have Polish available!
+Another interesting feature of PictoMaker is that it can output the pictograms uncolored. Here
+you see how we even have Polish available!
 
 ![Screenshot 05](./resources/screenshot-05.png)
 
-> DISCLAIMER: I haven't found any child-written font with all the characters in the Polish alphabet, if you know one please open an issue [here](https://github.com/mianfg/Incu2022/issues/new/choose)!
+> DISCLAIMER: I haven't found any child-written font with all the characters in the Polish
+> alphabet, if you know one please open an issue [here](https://github.com/mianfg/Incu2022/issues/new/choose)!
 
 Finally, you can know more about PictoMaker by texting `/about`.
 
@@ -78,15 +83,21 @@ Here are the things I will comment briefly:
 
 ### Simple database for user preferences persistence
 
-To store the user preferences, the WebEx code bot includes a [basic database application](./database.py) that stores values in plaintext using CSV and `pandas`. I developed this _database client_ for the [Python session](../python-session).
+To store the user preferences, the WebEx code bot includes a [basic database application](./database.py)
+that stores values in plaintext using CSV and `pandas`. I developed this _database client_
+for the [Python session](../python-session).
 
-> NOTE: I thought to use MongoDB or SQLAlchemy, but for the purposes of this simple bot I preferred to keep it as simple as possible!
+> NOTE: I thought to use MongoDB or SQLAlchemy, but for the purposes of this simple bot I
+> preferred to keep it as simple as possible!
 
 ### Always-on availability
 
-On the webinar for this task, the use of Ngrok was encouraged. However, given that I have a Virtual Private Server (VPS), I thought it was necessary to use it here!
+On the webinar for this task, the use of Ngrok was encouraged. However, given that I have a
+Virtual Private Server (VPS), I thought it was necessary to use it here!
 
-My VPS has Ubuntu Server 20.04, and I use Nginx as reverse proxy. To make both applications reachable online and always on, I just had to use Gunicorn and some basic _sysadmin_ tricks!
+My VPS has Ubuntu Server 20.04, and I use Nginx as reverse proxy. To make both applications
+reachable online and always on, I just had to use Gunicorn and some basic _sysadmin_ tricks
+to put it all together!
 
 Currently, the endpoints are:
 
