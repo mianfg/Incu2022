@@ -148,7 +148,7 @@ def respond(type, **kwargs):
     elif type == 'info':
         response = '**PictoMaker** is a project developed by [@mianfg](https://mianfg.me/en) 😀. You '
         response += 'can look at the source code of PictoMaker Lite (the API) [here](https://github.com/mianfg/pictomaker-lite) '
-        response += 'and the source code of this WebEx bot [here](#). 👩‍💻\n\n'
+        response += 'and the source code of this WebEx bot [here](https://github.com/mianfg/Incu2022/tree/main/webex-api-session). 👩‍💻\n\n'
         response += '🤷 **Why pictograms?**\n'
         response += 'Learning through pictograms is an essential tool for children with special '
         response += 'educational needs, as well as crutial for elder people with Alzheimer\'s disease '
