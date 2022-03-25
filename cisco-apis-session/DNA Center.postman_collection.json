@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "9c047baa-c569-4a3c-8f3c-97a7061e6ef0",
+		"name": "DNA Center",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Get token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// automatically set variable token to the provided token\r",
+							"var data = JSON.parse(responseBody)\r",
+							"postman.setEnvironmentVariable(\"token\", data.Token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{dnac_password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{dnac_username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{dnac}}/dna/system/api/v1/auth/token",
+					"protocol": "https",
+					"host": [
+						"{{dnac}}"
+					],
+					"path": [
+						"dna",
+						"system",
+						"api",
+						"v1",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Get list of devices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{dnac}}/dna/intent/api/v1/network-device",
+					"protocol": "https",
+					"host": [
+						"{{dnac}}"
+					],
+					"path": [
+						"dna",
+						"intent",
+						"api",
+						"v1",
+						"network-device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Get client health information",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{dnac}}/dna/intent/api/v1/client-health",
+					"protocol": "https",
+					"host": [
+						"{{dnac}}"
+					],
+					"path": [
+						"dna",
+						"intent",
+						"api",
+						"v1",
+						"client-health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

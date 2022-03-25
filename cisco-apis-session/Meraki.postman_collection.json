@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "8d2ff70d-bf2d-4d9d-9873-35d0f3e310bd",
+		"name": "Meraki",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Get organization ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// automatically set variable meraki_org_id to first organization id in request\r",
+							"var data = JSON.parse(responseBody)\r",
+							"postman.setEnvironmentVariable(\"meraki_org_id\", data[0].id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cisco-Meraki-API-Key",
+						"value": "{{meraki_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{meraki_base_url}}/organizations",
+					"protocol": "https",
+					"host": [
+						"{{meraki_base_url}}"
+					],
+					"path": [
+						"organizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Get network",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// automatically set variable meraki_net_id to the first network id from request\r",
+							"var data = JSON.parse(responseBody)\r",
+							"postman.setEnvironmentVariable(\"meraki_net_id\", data[0].id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cisco-Meraki-API-Key",
+						"value": "{{meraki_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{meraki_base_url}}/organizations/{{meraki_org_id}}/networks",
+					"protocol": "https",
+					"host": [
+						"{{meraki_base_url}}"
+					],
+					"path": [
+						"organizations",
+						"{{meraki_org_id}}",
+						"networks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Get network devices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cisco-Meraki-API-Key",
+						"value": "{{meraki_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{meraki_base_url}}/networks/{{meraki_net_id}}/devices",
+					"protocol": "https",
+					"host": [
+						"{{meraki_base_url}}"
+					],
+					"path": [
+						"networks",
+						"{{meraki_net_id}}",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Get client list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cisco-Meraki-API-Key",
+						"value": "{{meraki_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{meraki_base_url}}/networks/{{meraki_net_id}}/clients?timespan=3600",
+					"protocol": "https",
+					"host": [
+						"{{meraki_base_url}}"
+					],
+					"path": [
+						"networks",
+						"{{meraki_net_id}}",
+						"clients"
+					],
+					"query": [
+						{
+							"key": "timespan",
+							"value": "3600",
+							"description": "Fetched for the last hour"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
