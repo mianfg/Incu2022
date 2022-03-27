@@ -1,6 +1,8 @@
-# Incu2022
+![Cisco Incubator Program](./resources/incubator-banner.png)
 
-Repository for Cisco Incubator Program 9.0's DevNet track exercises
+# DevNet track
+
+Repository for Cisco Incubator Program 9.0's DevNet (Network Automation) track exercises
 
 ## Sessions
 
